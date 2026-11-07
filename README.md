@@ -1,6 +1,5 @@
----
+﻿---
 title: Wql Studio3d
-emoji: ??
 colorFrom: blue
 colorTo: green
 sdk: gradio
