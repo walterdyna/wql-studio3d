@@ -1,13 +1,1 @@
----
-title: Wql Studio3d
-emoji: 🐢
-colorFrom: gray
-colorTo: purple
-sdk: gradio
-sdk_version: 6.31.0
-python_version: '3.12'
-app_file: app.py
-pinned: false
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+---\ntitle: Wql Studio3d\nemoji: ??\ncolorFrom: orange\ncolorTo: slate\nsdk: gradio\nsdk_version: 4.19.2\napp_file: app.py\npinned: false\n---
