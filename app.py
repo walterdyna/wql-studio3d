@@ -1,7 +1,7 @@
 ﻿import gradio as gr
 from supabase import create_client
 
-SUPABASE_URL = 'https://supabase.co'
+SUPABASE_URL = 'https://ygaaenzdceeuthigyzxp.supabase.co'
 SUPABASE_KEY = 'sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI'
 
 try:
@@ -47,4 +47,4 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue='orange', secondary_hue='slate')
             saida_c = gr.Textbox(label='Controladoria (Helena)', lines=6)
             saida_a = gr.Textbox(label='Status (Alex)', lines=4)
     btn.click(fn=calcular_e_salvar, inputs=[nome, codigo, imps, peso, tempo, pr_f, pr_v], outputs=[saida_c, saida_a])
-demo.launch()
+demo.launch(show_api=False)
