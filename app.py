@@ -1,10 +1,8 @@
 import gradio as gr
 from supabase import create_client
 
-# CONFIGURA??O DE ACESSO AO BANCO (SOFIA ENGINE)
-# Substitua pelos seus dados reais se quiser conectar direto
-SUPABASE_URL = 'https://supabase.co'
-SUPABASE_KEY = 'SUA_CHAVE_ANON_PUBLIC_AQUI'
+SUPABASE_URL = 'https://ygaaenzdceeuthigyzxp.supabase.co'
+SUPABASE_KEY = 'sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI'
 
 try:
     supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
@@ -32,17 +30,15 @@ def calcular_e_salvar(nome, codigo, impressora, peso, tempo, preco_filamento, pr
         lucro = preco_venda - custo_total
         relatorio += f'\\n?? LUCRO ESTIMADO: R$ {lucro:.2f}'
         
-        # Salvando os dados de verdade nas gavetas do Supabase
         if supabase:
             try:
-                # 1. Salva o produto
                 prod_data = {{'codigo': codigo, 'nome': nome, 'preco_venda': preco_venda, 'descricao': 'Cadastrado via Painel Central'}}
                 supabase.table('produtos').insert(prod_data).execute()
                 status_banco = '?? Dados gravados com sucesso no Supabase!'
             except Exception as e:
-                status_banco = f'?? Erro ao gravar: Banco montando ou item duplicado.'
+                status_banco = f'?? Erro ao gravar: Item duplicado ou tabela carregando.'
         else:
-            status_banco = '? Modo de simula??o (Chave API n?o configurada).'
+            status_banco = '? Conex?o offline.'
             
         aviso_agentes = f'?? PRODUTO LAN?ADO!\\n\\n{status_banco}\\n?? Alex acionou Marina para o Instagram.\\n?? Alex acionou Ricardo para a Shopee!'
         return relatorio, aviso_agentes
@@ -51,7 +47,7 @@ def calcular_e_salvar(nome, codigo, impressora, peso, tempo, preco_filamento, pr
 
 with gr.Blocks(theme=gr.themes.Soft(primary_hue='orange', secondary_hue='slate')) as demo:
     gr.Markdown('# ?? WQL-Studio3D ? Comando Central')
-    gr.Markdown('F?brica conectada rodando na nuvem!')
+    gr.Markdown('F?brica 100% conectada ao Banco de Dados!')
     with gr.Row():
         with gr.Column():
             gr.Markdown('### ?? Cadastro de Pe?as')
@@ -62,7 +58,7 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue='orange', secondary_hue='slate')
             tempo = gr.Number(label='Tempo (minutos)', value=60)
             preco_filamento = gr.Number(label='Pre?o do KG (R$)', value=120)
             preco_venda = gr.Number(label='Seu Pre?o de Venda (R$)', value=0)
-            btn = gr.Button('?? Calcular e Gravar no Supabase', variant='primary')
+            btn = gr.Button('?? Calcular e Salvar no Banco', variant='primary')
         with gr.Column():
             gr.Markdown('### ??? Resposta da Controladoria')
             saida_custos = gr.Textbox(label='Relat?rio de Custos', lines=8)
