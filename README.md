@@ -1,1 +1,0 @@
----\ntitle: Wql Studio3d\nemoji: ??\ncolorFrom: orange\ncolorTo: slate\nsdk: gradio\nsdk_version: 4.19.2\napp_file: app.py\npinned: false\n---
