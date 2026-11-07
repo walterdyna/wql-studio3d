@@ -1,9 +1,1 @@
----  
-title: Wql Studio3d  
-colorFrom: blue  
-colorTo: green  
-sdk: gradio  
-sdk_version: 5.5.0  
-app_file: app.py  
-pinned: false  
----  
+---\ntitle: Wql Studio3d\nemoji: ??\ncolorFrom: blue\ncolorTo: green\nsdk: gradio\nsdk_version: 5.5.0\napp_file: app.py\npinned: false\n---
