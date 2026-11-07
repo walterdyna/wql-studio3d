@@ -1,7 +1,7 @@
 ﻿import gradio as gr
 from supabase import create_client
 
-SUPABASE_URL = 'https://supabase.co'
+SUPABASE_URL = 'https://ygaaenzdceeuthigyzxp.supabase.co'
 SUPABASE_KEY = 'sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI'
 
 try:
