@@ -2,7 +2,7 @@
 from supabase import create_client
 import google.generativeai as genai
 
-SUPABASE_URL = 'https://supabase.co'
+SUPABASE_URL = 'https://ygaaenzdceeuthigyzxp.supabase.co'
 SUPABASE_KEY = 'sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI'
 
 try:
