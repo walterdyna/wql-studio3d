@@ -18,8 +18,8 @@ with aba_painel:
             data = res.json()
             if data: st.dataframe(pd.DataFrame(data))
             else: st.info('Nenhuma peça na fila.')
-        else: st.info('Nenhuma peça na fila.')
-    except Exception as e: st.error(f'Erro: {e}')
+        else: st.info('Nenhuma peça na fila no momento.')
+    except Exception as e: st.error(f'Erro ao carregar dados: {e}')
 with aba_kaleb:
     st.header('Área do Kaleb')
     with st.form('f'):
@@ -30,7 +30,7 @@ with aba_kaleb:
             payload = {'peso_gramas': int(p), 'tempo_impressao_horas': float(t), 'status_producao': 'Aguardando Impressão'}
             res = requests.post(SUPABASE_URL, headers=headers, json=payload)
             if res.status_code < 300: st.success('🔥 Enviado com sucesso ao Supabase!')
-            else: st.error(f'Erro ao enviar: Código {res.status_code}')
+            else: st.error(f'Erro ao enviar: Código {res.status_code} - {res.text}')
 with aba_clara:
     st.header('💬 Central de Vendas da Clara')
     st.write('Gere mensagens prontas de orçamento e vendas para disparar direto no WhatsApp do cliente!')
