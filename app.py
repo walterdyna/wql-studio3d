@@ -7,7 +7,7 @@ st.title('🪐 Sistema Sofia - Comando Central WQL-Studio3D')
 st.subheader('Gerenciamento Inteligente de Impressão 3D e Vendas')
 
 SUPABASE_URL = 'https://supabase.co'
-headers = {'apikey': 'sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI', 'Authorization': 'Bearer sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI', 'Content-Type': 'application/json'}
+headers = {'apikey': 'sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI', 'Authorization': 'Bearer sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI', 'Content-Type': 'application/json', 'Prefer': 'return=representation'}
 
 aba_painel, aba_kaleb, aba_clara = st.tabs(['📊 Painel Geral', '🧩 Kaleb (Produção)', '💬 Clara (Atendimento)'])
 with aba_painel:
