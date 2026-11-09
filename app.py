@@ -14,7 +14,10 @@ with aba_painel:
     st.header('Análise de Custos e Margens (Helena)')
     try:
         res = requests.get(SUPABASE_URL, headers=headers)
-        if res.status_code == 200: st.dataframe(pd.DataFrame(res.json()))
+        if res.status_code == 200:
+            data = res.json()
+            if data: st.dataframe(pd.DataFrame(data))
+            else: st.info('Nenhuma peça na fila.')
         else: st.info('Nenhuma peça na fila.')
     except Exception as e: st.error(f'Erro: {e}')
 with aba_kaleb:
@@ -24,12 +27,13 @@ with aba_kaleb:
         p = st.number_input('Peso (g)', value=150)
         t = st.number_input('Tempo (h)', value=4.5)
         if st.form_submit_button('🚀 Enviar'):
-            res = requests.post(SUPABASE_URL, headers=headers, json={'peso_gramas': int(p), 'tempo_impressao_horas': float(t), 'status_producao': 'Aguardando Impressão' })
-            if res.status_code < 300: st.success('🔥 Enviado ao Supabase!')
-            else: st.error('Erro ao enviar.')
+            payload = {'peso_gramas': int(p), 'tempo_impressao_horas': float(t), 'status_producao': 'Aguardando Impressão'}
+            res = requests.post(SUPABASE_URL, headers=headers, json=payload)
+            if res.status_code < 300: st.success('🔥 Enviado com sucesso ao Supabase!')
+            else: st.error(f'Erro ao enviar: Código {res.status_code}')
 with aba_clara:
     st.header('💬 Central de Vendas da Clara')
     st.write('Gere mensagens prontas de orçamento e vendas para disparar direto no WhatsApp do cliente!')
-    txt = 'Olá! Seguem os detalhes do seu pedido da Amoê Decor. Fabricado com alta tecnologia de impressão 3D! ✨' 
+    txt = 'Olá! Seguem os detalhes do seu pedido da WQL-Studio3D. Fabricado com alta tecnologia de impressão 3D! ✨' 
     st.text_area('Copia o texto aqui:', txt, height=120)
     st.markdown('[🚀 Abrir e Enviar Direto no WhatsApp](https://wa.me)')
