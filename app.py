@@ -9,7 +9,7 @@ st.subheader('Gerenciamento Inteligente de Impressão 3D e Vendas')
 SUPABASE_URL = 'https://supabase.co'
 headers = {'apikey': 'sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI', 'Authorization': 'Bearer sb_publishable_kneViBo-K1niAdMIKApMoQ_forPnbxI', 'Content-Type': 'application/json'}
 
-aba_painel, aba_kaleb, aba_clara = st.tabs(['📊 Painel Geral', '🧩 Kaleb (Produção)', '💬 Clara (Atendimento)'] logic)
+aba_painel, aba_kaleb, aba_clara = st.tabs(['📊 Painel Geral', '🧩 Kaleb (Produção)', '💬 Clara (Atendimento)'])
 with aba_painel:
     st.header('Análise de Custos e Margens (Helena)')
     try:
@@ -32,4 +32,4 @@ with aba_clara:
     st.write('Gere mensagens prontas de orçamento e vendas para disparar direto no WhatsApp do cliente!')
     txt = 'Olá! Seguem os detalhes do seu pedido da Amoê Decor. Fabricado com alta tecnologia de impressão 3D! ✨' 
     st.text_area('Copia o texto aqui:', txt, height=120)
-    st.markdown(f'[🚀 Abrir e Enviar Direto no WhatsApp](https://wa.me)')
+    st.markdown('[🚀 Abrir e Enviar Direto no WhatsApp](https://wa.me)')
